@@ -1,0 +1,24 @@
+使用指令"cp"将当前目录"test/"下的所有文件复制到新目录"newtest"下，输入如下命令：
+$ cp –r test/ newtest  
+-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。
+
+gcc -L位置（库的） -l 指定库名 
+-L参数跟着的是库文件所在的目录名。再比如我们把libtest.so放在/aaa/bbb/ccc目录下，那链接参数就是-L/aaa/bbb/ccc -ltest
+
+ .a/.lib静态  .so/.dll动态  .0/.obj自用 
+静态：将功能代码复制进去
+动态：将功能模块地址写入
+
+gcc -I
+-I参数是用来指定头文件目录，/usr/include目录一般是不用指定的，gcc知道去那里找，但是如果头文件不在/usr/i
+nclude里我们就要用-I参数指定了，比如头文件放
+在/myinclude目录里，那编译命令行就要加上-I/myinclude参数了，如果不加你会得到
+一个"xxxx.h: No such file or directory"的错误。-I
+参数可以用相对路径，比如头文件在当前目录，可以用-I.来指定。上面我们提到的--cf
+lags参数就是用来生成-I参数的。
+
+
+dlsym是一个计算机函数，功能是根据动态链接库操作句柄与符号，返回符号对应的地址，不但可以获取函数地址，也可以获取变量地址。
+void*dlsym(void*handle,constchar*symbol)
+handle：由dlopen打开动态链接库后返回的指针；
+symbol：要求获取的函数或全局变量的名称。
